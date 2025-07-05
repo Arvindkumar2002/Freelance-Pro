@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ClientCircle - India's Action-Powered Freelance Community</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #6d28d9;
+      --secondary: #0ea5e9;
+      --dark: #1e293b;
+      --light: #ffffff;
+      --gray: #f8fafc;
+      --accent: #f59e0b;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background-color: var(--light);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    header {
+      text-align: center;
+      padding: 80px 20px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: var(--light);
+      border-bottom-left-radius: 40px;
+      border-bottom-right-radius: 40px;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 15px;
+    }
+
+    .subheadline {
+      font-size: 1.3rem;
+      max-width: 700px;
+      margin: 10px auto 25px;
+    }
+
+    .price-tag {
+      display: inline-block;
+      background-color: var(--accent);
+      color: var(--dark);
+      padding: 10px 25px;
+      border-radius: 50px;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+
+    .graphic-icons {
+      font-size: 2.8rem;
+      margin: 20px auto 0;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .video-container {
+      text-align: center;
+      margin: 40px 0 20px;
+    }
+
+    .video-wrapper {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+
+    .video-wrapper iframe {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+    }
+
+    .action-button {
+      margin-top: 30px;
+      padding: 15px 40px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      font-size: 1.2rem;
+      font-weight: bold;
+      border-radius: 50px;
+      text-decoration: none;
+      display: inline-block;
+      transition: 0.3s ease;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(110, 40, 220, 0.5); }
+      70% { box-shadow: 0 0 0 20px rgba(110, 40, 220, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(110, 40, 220, 0); }
+    }
+
+    section {
+      margin: 60px 0;
+    }
+
+    h2 {
+      font-size: 2rem;
+      text-align: center;
+      color: var(--primary);
+      margin-bottom: 20px;
+    }
+
+    .section-description {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 30px;
+      font-size: 1.1rem;
+      color: var(--dark);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .card {
+      padding: 30px;
+      background: #f9f9f9;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      text-align: center;
+      transition: 0.3s ease;
+      color: #000;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card i {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+      color: var(--primary);
+    }
+
+    .why-join {
+      background: linear-gradient(135deg, #f3f4f6, #e5e7eb);
+      color: #000;
+      padding: 60px 30px;
+      border-radius: 20px;
+    }
+
+    .why-join .section-description {
+      color: #000;
+    }
+
+    .cta-section {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: var(--light);
+      padding: 80px 30px;
+      border-radius: 20px;
+      text-align: center;
+    }
+
+    .cta-section h2 {
+      color: var(--light);
+    }
+
+    .cta-section .action-button {
+      background: var(--accent);
+      color: var(--dark);
+      font-size: 1.2rem;
+      animation: pulse 1.5s infinite;
+    }
+
+    .cta-note {
+      font-size: 0.9rem;
+      margin-top: 10px;
+      opacity: 0.8;
+      color: var(--light);
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2.2rem;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🚀 Welcome to ClientCircle</h1>
+    <p class="subheadline">Where India’s smartest freelancers grow their income every month</p>
+    <div class="price-tag">Join Now for ₹99/month</div>
+    <div class="graphic-icons">📈🧠🎯🔥💼</div>
+  </header>
+
+  <main class="container">
+    <section class="video-container">
+      <div class="video-wrapper">
+        <iframe src="https://www.youtube.com/embed/givuf7GvAEc" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <a href="https://superprofile.bio/vig/68669c3ee9b28000131da815" class="action-button">Start Your Freelance Journey 🚀</a>
+    </section>
+
+    <section>
+      <h2>🎯 Built For Go-Getters</h2>
+      <p class="section-description">ClientCircle is made for those who want to take action and earn consistently through freelancing — not just learn.</p>
+      <div class="grid">
+        <div class="card"><i class="fas fa-paint-brush"></i><p>Designers</p></div>
+        <div class="card"><i class="fas fa-video"></i><p>Video Editors</p></div>
+        <div class="card"><i class="fas fa-chart-line"></i><p>SMMA Founders</p></div>
+        <div class="card"><i class="fas fa-pen-nib"></i><p>Writers</p></div>
+        <div class="card"><i class="fas fa-graduation-cap"></i><p>Students</p></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>🛠️ Monthly Toolkit</h2>
+      <p class="section-description">Everything you need delivered every month — updated and action-ready.</p>
+      <div class="grid">
+        <div class="card"><i class="fas fa-user-check"></i><p>15–30 Client Leads</p></div>
+        <div class="card"><i class="fas fa-envelope-open-text"></i><p>Proven Cold DM Scripts</p></div>
+        <div class="card"><i class="fas fa-toolbox"></i><p>Outreach Tools Access</p></div>
+        <div class="card"><i class="fas fa-video"></i><p>How-to Pitch Videos</p></div>
+        <div class="card"><i class="fas fa-headset"></i><p>Live Growth Calls</p></div>
+        <div class="card"><i class="fas fa-users"></i><p>Private Telegram Group</p></div>
+      </div>
+    </section>
+
+    <section class="why-join">
+      <h2>💡 Why Join ClientCircle?</h2>
+      <p class="section-description">Because we aren’t another boring course. We’re a client-hunting, money-making, real-support system that actually works.</p>
+      <div class="grid">
+        <div class="card"><i class="fas fa-bolt"></i><p>Real Action, Not Theory</p></div>
+        <div class="card"><i class="fas fa-paper-plane"></i><p>Message. Follow-up. Close.</p></div>
+        <div class="card"><i class="fas fa-handshake"></i><p>Start Earning Instantly</p></div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <h2>🔥 Ready to Land Clients Like a Pro?</h2>
+      <p style="font-size: 1.2rem; max-width: 600px; margin: 0 auto 30px;">Join 1,200+ members getting weekly leads, tools, and scripts to close deals fast.</p>
+      <a href="https://superprofile.bio/vig/68669c3ee9b28000131da815" class="action-button">Join Now for ₹99 →</a>
+      <p class="cta-note">🔒 Secure Payment via SuperProfile – Cancel Anytime</p>
+    </section>
+  </main>
+</body>
+</html>
