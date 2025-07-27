@@ -6,7 +6,8 @@
   <title>FreelancePro - 2X Your Freelance Income in 90 Days (Guaranteed)</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     :root {
       --brand-blue: #246bfd;
@@ -17,10 +18,12 @@
       --footer-bg: #23272f;
       --footer-link: #bfc5d2;
       --footer-link-hover: #ffb300;
-      --card-radius: 12px;
-      --card-shadow: 0 4px 24px 0 rgba(36,107,253,0.07), 0 1.5px 6px 0 rgba(0,0,0,0.04);
-      --transition: 0.2s cubic-bezier(.4,0,.2,1);
+      --card-radius: 16px;
+      --card-shadow: 0 10px 30px 0 rgba(36,107,253,0.12), 0 2px 6px 0 rgba(0,0,0,0.04);
+      --transition: 0.3s cubic-bezier(.4,0,.2,1);
       --body-font: 'Inter', Arial, sans-serif;
+      --gradient-blue: linear-gradient(135deg, #246bfd 0%, #5089ff 100%);
+      --gradient-yellow: linear-gradient(135deg, #ffb300 0%, #ffcb3c 100%);
     }
 
     * {
@@ -39,7 +42,8 @@
       color: var(--dark-gray);
       background: #fff;
       line-height: 1.6;
-      -webkit-text-size-adjust: 100%;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
     /* Header */
@@ -47,13 +51,14 @@
       position: sticky;
       top: 0;
       width: 100%;
-      height: 70px;
-      background: #fff;
-      box-shadow: 0 2px 12px 0 rgba(36,107,253,0.04);
+      height: 80px;
+      background: rgba(255,255,255,0.98);
+      box-shadow: 0 2px 20px 0 rgba(36,107,253,0.08);
       z-index: 1000;
       display: flex;
       align-items: center;
       justify-content: center;
+      backdrop-filter: blur(8px);
     }
 
     .header-inner {
@@ -63,15 +68,22 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 20px;
+      padding: 0 24px;
     }
 
     .header-logo {
       font-weight: 900;
-      font-size: 1.4rem;
+      font-size: 1.5rem;
       color: var(--brand-blue);
       letter-spacing: 0.5px;
       text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .header-logo i {
+      font-size: 1.3em;
     }
 
     .header-nav {
@@ -89,16 +101,21 @@
       cursor: pointer;
       width: 48px;
       height: 48px;
+      transition: transform 0.2s;
+    }
+
+    .header-hamburger:hover {
+      transform: scale(1.1);
     }
 
     .header-mobile-nav {
       display: none;
       position: fixed;
-      top: 70px;
+      top: 80px;
       left: 0;
       width: 100%;
       background: #fff;
-      box-shadow: 0 4px 20px 0 rgba(0,0,0,0.12);
+      box-shadow: 0 10px 30px 0 rgba(0,0,0,0.15);
       z-index: 1001;
       flex-direction: column;
       align-items: center;
@@ -113,10 +130,16 @@
       text-decoration: none;
       font-weight: 600;
       font-size: 1.1rem;
-      padding: 16px 0;
+      padding: 18px 0;
       width: 100%;
       text-align: center;
-      border-bottom: 1px solid #f0f0f0;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+      transition: all 0.2s;
+    }
+
+    .header-mobile-link:hover {
+      background: var(--light-gray);
+      color: var(--brand-blue);
     }
 
     .header-cta {
@@ -130,52 +153,91 @@
       left: 0;
       width: 100%;
       background: #fff;
-      box-shadow: 0 -4px 20px 0 rgba(0,0,0,0.12);
+      box-shadow: 0 -10px 30px 0 rgba(0,0,0,0.15);
       z-index: 1002;
-      padding: 12px 16px;
+      padding: 16px 20px;
       text-align: center;
+      transform: translateY(0);
+      transition: transform 0.3s ease;
+    }
+
+    .mobile-cta-bar.hide {
+      transform: translateY(100%);
     }
 
     .mobile-cta-btn {
-      background: var(--accent-yellow);
+      background: var(--gradient-yellow);
       color: #222;
       font-weight: 800;
       font-size: 1.1rem;
       text-transform: uppercase;
-      padding: 16px 0;
+      padding: 18px 0;
       border: none;
-      border-radius: 30px;
-      box-shadow: 0 4px 16px 0 rgba(255,179,0,0.15);
+      border-radius: 50px;
+      box-shadow: 0 8px 20px 0 rgba(255,179,0,0.25);
       cursor: pointer;
       width: 100%;
-      max-width: 350px;
+      max-width: 400px;
       display: inline-block;
       text-decoration: none;
       transition: all 0.3s ease;
+      letter-spacing: 0.5px;
     }
 
     .mobile-cta-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px 0 rgba(255,179,0,0.25);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 25px 0 rgba(255,179,0,0.35);
     }
 
     /* Hero Section */
     .hero {
       background: linear-gradient(135deg, #f7f9fb 0%, #e6f0ff 100%);
-      padding: 100px 20px 60px;
+      padding: 120px 20px 80px;
       text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: -50px;
+      right: -50px;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(36,107,253,0.08) 0%, rgba(36,107,253,0) 70%);
+      border-radius: 50%;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      bottom: -100px;
+      left: -100px;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(255,179,0,0.08) 0%, rgba(255,179,0,0) 70%);
+      border-radius: 50%;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 900px;
+      margin: 0 auto;
     }
 
     .hero-headline {
-      font-size: clamp(1.8rem, 5vw, 2.5rem);
+      font-size: clamp(2rem, 6vw, 3rem);
       font-weight: 900;
       color: var(--brand-blue);
       margin-bottom: 20px;
       line-height: 1.2;
+      letter-spacing: -0.5px;
     }
 
     .hero-subheading {
-      font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+      font-size: clamp(1.1rem, 3vw, 1.4rem);
       color: var(--dark-gray);
       margin-bottom: 30px;
       font-weight: 500;
@@ -185,28 +247,47 @@
     }
 
     .cta-btn {
-      background: var(--accent-yellow);
+      background: var(--gradient-yellow);
       color: #222;
       font-weight: 800;
       font-size: 1.2rem;
       text-transform: uppercase;
-      padding: 18px 0;
+      padding: 20px 0;
       border: none;
-      border-radius: 30px;
-      box-shadow: 0 4px 16px 0 rgba(255,179,0,0.15);
+      border-radius: 50px;
+      box-shadow: 0 8px 20px 0 rgba(255,179,0,0.25);
       cursor: pointer;
       width: 100%;
-      max-width: 350px;
+      max-width: 400px;
       margin: 0 auto 20px;
       display: block;
       text-decoration: none;
       transition: all 0.3s ease;
       animation: pulse 2s infinite;
+      letter-spacing: 0.5px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-btn::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(rgba(255,255,255,0.2), rgba(255,255,255,0));
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .cta-btn:hover::after {
+      opacity: 1;
     }
 
     .cta-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px 0 rgba(255,179,0,0.25);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 25px 0 rgba(255,179,0,0.35);
     }
 
     @keyframes pulse {
@@ -230,6 +311,10 @@
       gap: 8px;
       font-size: 0.95rem;
       color: var(--muted-gray);
+      background: rgba(255,255,255,0.7);
+      padding: 8px 16px;
+      border-radius: 50px;
+      backdrop-filter: blur(4px);
     }
 
     .social-proof-scroller {
@@ -237,14 +322,16 @@
       border-radius: var(--card-radius);
       box-shadow: var(--card-shadow);
       padding: 15px;
-      margin: 30px auto;
+      margin: 40px auto;
       max-width: 600px;
       overflow: hidden;
+      position: relative;
     }
 
     .scroller-content {
       display: flex;
-      animation: scroll 20s linear infinite;
+      animation: scroll 25s linear infinite;
+      width: max-content;
     }
 
     @keyframes scroll {
@@ -266,6 +353,7 @@
       height: 50px;
       border-radius: 50%;
       object-fit: cover;
+      border: 2px solid var(--brand-blue);
     }
 
     .testimonial-text {
@@ -275,72 +363,149 @@
     .testimonial-name {
       font-weight: 700;
       color: var(--brand-blue);
+      margin-top: 4px;
+    }
+
+    /* Video Section */
+    .video-section {
+      padding: 60px 20px;
+      background: #fff;
+      text-align: center;
+    }
+
+    .video-container {
+      max-width: 800px;
+      margin: 0 auto;
+      border-radius: var(--card-radius);
+      overflow: hidden;
+      box-shadow: var(--card-shadow);
+      position: relative;
+      padding-top: 56.25%; /* 16:9 Aspect Ratio */
+    }
+
+    .video-iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
     }
 
     /* Benefits Section */
     .benefits-section {
-      padding: 80px 20px;
+      padding: 100px 20px;
       background: #fff;
+      position: relative;
+    }
+
+    .benefits-section::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23246bfd' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
+      opacity: 0.5;
+      z-index: 0;
     }
 
     .section-heading {
-      font-size: clamp(1.8rem, 5vw, 2.2rem);
+      font-size: clamp(1.8rem, 5vw, 2.5rem);
       font-weight: 800;
       color: var(--brand-blue);
       text-align: center;
-      margin-bottom: 50px;
+      margin-bottom: 60px;
+      position: relative;
+      z-index: 1;
+      letter-spacing: -0.5px;
+    }
+
+    .section-heading::after {
+      content: "";
+      display: block;
+      width: 80px;
+      height: 4px;
+      background: var(--accent-yellow);
+      margin: 15px auto 0;
+      border-radius: 2px;
     }
 
     .benefits-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 25px;
-      max-width: 1000px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      max-width: 1100px;
       margin: 0 auto;
+      position: relative;
+      z-index: 1;
     }
 
     .benefit-card {
-      background: #f7f9fb;
+      background: #fff;
       border-radius: var(--card-radius);
       box-shadow: var(--card-shadow);
-      padding: 30px 25px;
+      padding: 40px 30px;
       text-align: center;
       transition: transform var(--transition), box-shadow var(--transition);
+      border: 1px solid rgba(36,107,253,0.1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .benefit-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: var(--gradient-blue);
     }
 
     .benefit-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 32px 0 rgba(36,107,253,0.12);
+      transform: translateY(-8px);
+      box-shadow: 0 15px 40px 0 rgba(36,107,253,0.15);
     }
 
     .benefit-icon {
-      font-size: 2.8rem;
-      margin-bottom: 15px;
+      font-size: 3rem;
+      margin-bottom: 20px;
       color: var(--brand-blue);
+      background: rgba(36,107,253,0.1);
+      width: 80px;
+      height: 80px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
     }
 
     .benefit-title {
       font-weight: 700;
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       color: var(--dark-gray);
-      margin-bottom: 10px;
+      margin-bottom: 15px;
     }
 
     .benefit-desc {
       color: var(--muted-gray);
-      font-size: 1rem;
+      font-size: 1.05rem;
+      line-height: 1.6;
     }
 
     /* Results Section */
     .results-section {
-      padding: 80px 20px;
+      padding: 100px 20px;
       background: var(--light-gray);
       text-align: center;
+      position: relative;
     }
 
     .results-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 30px;
       max-width: 1000px;
       margin: 0 auto;
@@ -350,35 +515,47 @@
       background: #fff;
       border-radius: var(--card-radius);
       box-shadow: var(--card-shadow);
-      padding: 30px;
+      padding: 40px 30px;
       text-align: center;
+      transition: transform var(--transition);
+      border: 1px solid rgba(36,107,253,0.1);
+    }
+
+    .result-card:hover {
+      transform: translateY(-5px);
     }
 
     .result-number {
-      font-size: 2.5rem;
+      font-size: 3rem;
       font-weight: 800;
       color: var(--brand-blue);
       margin-bottom: 10px;
+      background: var(--gradient-blue);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: inline-block;
     }
 
     .result-label {
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       color: var(--muted-gray);
+      font-weight: 500;
     }
 
     /* Pricing Section */
     .pricing-section {
-      padding: 80px 20px;
+      padding: 100px 20px;
       background: #fff;
       text-align: center;
+      position: relative;
     }
 
     .pricing-card {
       background: #fff;
       border-radius: var(--card-radius);
-      box-shadow: 0 4px 40px 0 rgba(36,107,253,0.1);
-      padding: 40px 30px;
-      max-width: 500px;
+      box-shadow: 0 10px 50px 0 rgba(36,107,253,0.15);
+      padding: 50px 40px;
+      max-width: 600px;
       margin: 0 auto;
       border: 2px solid var(--brand-blue);
       position: relative;
@@ -388,41 +565,54 @@
     .popular-badge {
       position: absolute;
       top: 0;
-      right: 20px;
-      background: var(--accent-yellow);
+      right: 30px;
+      background: var(--gradient-yellow);
       color: #222;
       font-weight: 800;
       font-size: 0.9rem;
-      padding: 5px 15px;
+      padding: 8px 20px;
       border-bottom-left-radius: 8px;
       border-bottom-right-radius: 8px;
+      box-shadow: 0 4px 12px 0 rgba(255,179,0,0.3);
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
 
     .pricing-title {
-      font-size: 1.5rem;
+      font-size: 1.8rem;
       font-weight: 800;
       color: var(--brand-blue);
       margin-bottom: 15px;
     }
 
     .pricing-price {
-      font-size: 2.8rem;
+      font-size: 3.5rem;
       font-weight: 900;
       color: var(--brand-blue);
       margin-bottom: 20px;
+      background: var(--gradient-blue);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: inline-block;
+    }
+
+    .pricing-price span {
+      font-size: 1.5rem;
+      font-weight: 600;
     }
 
     .pricing-features {
       text-align: left;
-      margin: 30px 0;
+      margin: 40px 0;
       list-style: none;
     }
 
     .pricing-features li {
-      margin-bottom: 15px;
-      padding-left: 30px;
+      margin-bottom: 18px;
+      padding-left: 40px;
       position: relative;
-      font-size: 1.05rem;
+      font-size: 1.1rem;
+      line-height: 1.5;
     }
 
     .pricing-features li:before {
@@ -431,18 +621,27 @@
       position: absolute;
       left: 0;
       font-weight: bold;
+      font-size: 1.3rem;
     }
 
     .money-back {
-      font-size: 0.95rem;
+      font-size: 1rem;
       color: var(--muted-gray);
-      margin-bottom: 20px;
+      margin-bottom: 25px;
       font-style: italic;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .money-back i {
+      color: var(--brand-blue);
     }
 
     /* FAQ Section */
     .faq-section {
-      padding: 80px 20px;
+      padding: 100px 20px;
       background: var(--light-gray);
       text-align: center;
     }
@@ -457,16 +656,17 @@
       background: #fff;
       border-radius: var(--card-radius);
       box-shadow: var(--card-shadow);
-      margin-bottom: 15px;
+      margin-bottom: 20px;
       overflow: hidden;
+      border: 1px solid rgba(36,107,253,0.1);
     }
 
     .faq-question {
       cursor: pointer;
-      padding: 20px 25px;
+      padding: 25px;
       font-weight: 700;
       color: var(--dark-gray);
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -474,6 +674,11 @@
       border: none;
       width: 100%;
       text-align: left;
+      transition: background 0.2s;
+    }
+
+    .faq-question:hover {
+      background: rgba(36,107,253,0.03);
     }
 
     .faq-answer {
@@ -481,14 +686,15 @@
       overflow: hidden;
       background: #fff;
       color: var(--muted-gray);
-      font-size: 1.05rem;
+      font-size: 1.1rem;
+      line-height: 1.6;
       padding: 0 25px;
-      transition: max-height 0.35s ease;
+      transition: max-height 0.4s ease, padding 0.4s ease;
     }
 
     .faq-item.open .faq-answer {
       max-height: 500px;
-      padding: 0 25px 20px;
+      padding: 0 25px 30px;
     }
 
     .faq-toggle {
@@ -496,6 +702,8 @@
       color: var(--brand-blue);
       margin-left: 15px;
       transition: transform 0.3s;
+      min-width: 24px;
+      text-align: center;
     }
 
     .faq-item.open .faq-toggle {
@@ -504,31 +712,64 @@
 
     /* Final CTA */
     .final-cta {
-      padding: 80px 20px;
-      background: var(--brand-blue);
+      padding: 100px 20px;
+      background: var(--gradient-blue);
       color: white;
       text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .final-cta::before {
+      content: "";
+      position: absolute;
+      top: -100px;
+      right: -100px;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0) 70%);
+      border-radius: 50%;
+    }
+
+    .final-cta::after {
+      content: "";
+      position: absolute;
+      bottom: -150px;
+      left: -150px;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+      border-radius: 50%;
+    }
+
+    .final-cta-content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+      margin: 0 auto;
     }
 
     .final-cta-heading {
-      font-size: clamp(1.8rem, 5vw, 2.2rem);
+      font-size: clamp(1.8rem, 5vw, 2.5rem);
       font-weight: 800;
       margin-bottom: 20px;
+      letter-spacing: -0.5px;
     }
 
     .final-cta-subheading {
-      font-size: 1.2rem;
-      margin-bottom: 30px;
+      font-size: 1.3rem;
+      margin-bottom: 40px;
       max-width: 700px;
       margin-left: auto;
       margin-right: auto;
+      opacity: 0.9;
     }
 
     /* Footer */
     footer {
       background: var(--footer-bg);
       color: var(--footer-link);
-      padding: 60px 20px 30px;
+      padding: 80px 20px 40px;
     }
 
     .footer-container {
@@ -538,89 +779,153 @@
 
     .footer-logo {
       font-weight: 900;
-      font-size: 1.5rem;
+      font-size: 1.6rem;
       color: #fff;
       letter-spacing: 1px;
-      margin-bottom: 20px;
+      margin-bottom: 25px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .footer-logo i {
+      color: var(--accent-yellow);
     }
 
     .footer-columns {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 40px;
-      margin-bottom: 40px;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 50px;
+      margin-bottom: 50px;
     }
 
     .footer-col-title {
       font-weight: 700;
       color: #fff;
-      margin-bottom: 15px;
-      font-size: 1.1rem;
+      margin-bottom: 20px;
+      font-size: 1.2rem;
+      position: relative;
+      padding-bottom: 10px;
+    }
+
+    .footer-col-title::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 40px;
+      height: 3px;
+      background: var(--accent-yellow);
+      border-radius: 3px;
     }
 
     .footer-link {
       color: var(--footer-link);
       text-decoration: none;
       display: block;
-      margin-bottom: 10px;
-      font-size: 1rem;
-      transition: color 0.2s;
+      margin-bottom: 12px;
+      font-size: 1.05rem;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .footer-link i {
+      width: 20px;
+      text-align: center;
+      font-size: 0.9rem;
     }
 
     .footer-link:hover {
       color: var(--footer-link-hover);
+      transform: translateX(5px);
     }
 
     .footer-bottom {
       text-align: center;
       color: #8a8f9c;
       font-size: 0.95rem;
-      margin-top: 40px;
-      padding-top: 20px;
+      margin-top: 60px;
+      padding-top: 30px;
       border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .social-links {
+      display: flex;
+      gap: 15px;
+      margin-top: 30px;
+    }
+
+    .social-link {
+      color: var(--footer-link);
+      font-size: 1.2rem;
+      transition: color 0.2s;
+    }
+
+    .social-link:hover {
+      color: var(--footer-link-hover);
     }
 
     /* Desktop Styles */
     @media (min-width: 992px) {
       .header {
-        height: 80px;
+        height: 90px;
       }
       
       .header-nav {
         display: flex;
         align-items: center;
-        gap: 30px;
+        gap: 40px;
       }
       
       .header-link {
         color: var(--dark-gray);
         text-decoration: none;
         font-weight: 600;
-        font-size: 1.05rem;
-        transition: color 0.2s;
+        font-size: 1.1rem;
+        transition: all 0.2s;
+        position: relative;
+      }
+      
+      .header-link::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--brand-blue);
+        transition: width 0.3s;
       }
       
       .header-link:hover {
         color: var(--brand-blue);
       }
       
+      .header-link:hover::after {
+        width: 100%;
+      }
+      
       .header-cta {
         display: inline-block;
-        background: var(--accent-yellow);
+        background: var(--gradient-yellow);
         color: #222;
         font-weight: 800;
-        font-size: 1.05rem;
+        font-size: 1.1rem;
         text-transform: uppercase;
-        padding: 12px 25px;
-        border-radius: 30px;
-        margin-left: 20px;
+        padding: 14px 30px;
+        border-radius: 50px;
+        margin-left: 30px;
         text-decoration: none;
         transition: all 0.3s ease;
+        letter-spacing: 0.5px;
+        box-shadow: 0 8px 20px 0 rgba(255,179,0,0.25);
       }
       
       .header-cta:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 20px 0 rgba(255,179,0,0.2);
+        transform: translateY(-3px);
+        box-shadow: 0 12px 25px 0 rgba(255,179,0,0.35);
       }
       
       .header-hamburger {
@@ -632,8 +937,27 @@
       }
       
       .hero {
-        padding: 120px 20px 80px;
+        padding: 140px 20px 100px;
       }
+
+      .hero-headline {
+        margin-bottom: 25px;
+      }
+
+      .hero-subheading {
+        margin-bottom: 40px;
+      }
+    }
+
+    /* Animations */
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
+    }
+
+    .floating {
+      animation: float 4s ease-in-out infinite;
     }
   </style>
 </head>
@@ -641,18 +965,24 @@
   <!-- Header -->
   <header class="header" role="banner">
     <div class="header-inner">
-      <a href="#top" class="header-logo" aria-label="FreelancePro Home">FreelancePro</a>
+      <a href="#top" class="header-logo" aria-label="FreelancePro Home">
+        <i class="fas fa-rocket"></i> FreelancePro
+      </a>
       <nav class="header-nav" aria-label="Main Navigation">
         <a href="#benefits" class="header-link">Benefits</a>
+        <a href="#video" class="header-link">How It Works</a>
         <a href="#results" class="header-link">Results</a>
         <a href="#pricing" class="header-link">Pricing</a>
         <a href="#faq" class="header-link">FAQ</a>
       </nav>
-      <button class="header-hamburger" aria-label="Open navigation menu" tabindex="0">☰</button>
+      <button class="header-hamburger" aria-label="Open navigation menu" tabindex="0">
+        <i class="fas fa-bars"></i>
+      </button>
       <a href="#pricing" class="header-cta">Join Now</a>
     </div>
     <nav class="header-mobile-nav" aria-label="Mobile Navigation">
       <a href="#benefits" class="header-mobile-link">Benefits</a>
+      <a href="#video" class="header-mobile-link">How It Works</a>
       <a href="#results" class="header-mobile-link">Results</a>
       <a href="#pricing" class="header-mobile-link">Pricing</a>
       <a href="#faq" class="header-mobile-link">FAQ</a>
@@ -666,39 +996,56 @@
 
   <!-- Hero Section -->
   <section class="hero" id="top">
-    <h1 class="hero-headline">2X Your Freelance Income in 90 Days (Guaranteed)</h1>
-    <div class="hero-subheading">Join 1,200+ freelancers who now earn ₹50k-₹1L+/month with our proven system</div>
-    <a href="#pricing" class="cta-btn">Get Instant Access for ₹99</a>
-    
-    <div class="trust-badges">
-      <div class="trust-badge">✅ 7-Day Money Back Guarantee</div>
-      <div class="trust-badge">⭐ 4.8/5 (1,200+ Members)</div>
-    </div>
-    
-    <div class="social-proof-scroller">
-      <div class="scroller-content">
-        <div class="testimonial-item">
-          <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Riya" class="testimonial-avatar">
-          <div class="testimonial-text">
-            <div>"Went from ₹25k to ₹85k/month in 2 months!"</div>
-            <div class="testimonial-name">- Riya, Graphic Designer</div>
+    <div class="hero-content">
+      <h1 class="hero-headline">2X Your Freelance Income in 90 Days <span style="white-space: nowrap;">(Guaranteed)</span></h1>
+      <div class="hero-subheading">Join 1,200+ Indian freelancers who now earn ₹50k-₹1L+/month with our proven system</div>
+      <a href="#pricing" class="cta-btn">Get Instant Access for ₹99</a>
+      
+      <div class="trust-badges">
+        <div class="trust-badge"><i class="fas fa-shield-alt"></i> 7-Day Money Back Guarantee</div>
+        <div class="trust-badge"><i class="fas fa-star"></i> 4.8/5 (1,200+ Members)</div>
+      </div>
+      
+      <div class="social-proof-scroller">
+        <div class="scroller-content">
+          <div class="testimonial-item">
+            <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Riya" class="testimonial-avatar">
+            <div class="testimonial-text">
+              <div>"Went from ₹25k to ₹85k/month in 2 months! FreelancePro changed my life."</div>
+              <div class="testimonial-name">- Riya, Graphic Designer</div>
+            </div>
           </div>
-        </div>
-        <div class="testimonial-item">
-          <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Aarav" class="testimonial-avatar">
-          <div class="testimonial-text">
-            <div>"Landed 3 high-paying clients in my first month!"</div>
-            <div class="testimonial-name">- Aarav, Web Developer</div>
+          <div class="testimonial-item">
+            <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Aarav" class="testimonial-avatar">
+            <div class="testimonial-text">
+              <div>"Landed 3 high-paying clients in my first month! The leads are amazing."</div>
+              <div class="testimonial-name">- Aarav, Web Developer</div>
+            </div>
           </div>
-        </div>
-        <div class="testimonial-item">
-          <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Priya" class="testimonial-avatar">
-          <div class="testimonial-text">
-            <div>"Best investment I've made in my freelance career"</div>
-            <div class="testimonial-name">- Priya, Content Writer</div>
+          <div class="testimonial-item">
+            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Priya" class="testimonial-avatar">
+            <div class="testimonial-text">
+              <div>"Best investment I've made in my freelance career. 5X'd my income in 4 months."</div>
+              <div class="testimonial-name">- Priya, Content Writer</div>
+            </div>
+          </div>
+          <div class="testimonial-item">
+            <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="Vikram" class="testimonial-avatar">
+            <div class="testimonial-text">
+              <div>"The templates alone are worth 10X the price. My conversion rate tripled."</div>
+              <div class="testimonial-name">- Vikram, Digital Marketer</div>
+            </div>
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- Video Section -->
+  <section class="video-section" id="video">
+    <h2 class="section-heading">How FreelancePro Works</h2>
+    <div class="video-container">
+      <iframe class="video-iframe" src="https://www.youtube.com/embed/givuf7GvAEc" title="How FreelancePro Works" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
   </section>
 
@@ -707,43 +1054,53 @@
     <h2 class="section-heading">How FreelancePro Helps You Earn More</h2>
     <div class="benefits-grid">
       <div class="benefit-card">
-        <div class="benefit-icon">🔎</div>
+        <div class="benefit-icon"><i class="fas fa-bullseye"></i></div>
         <h3 class="benefit-title">Curated Client Leads</h3>
-        <p class="benefit-desc">Get 15-30 verified, high-paying leads delivered to you monthly - no more cold outreach</p>
+        <p class="benefit-desc">Get 15-30 verified, high-paying leads delivered to you monthly - no more cold outreach or wasting time on unqualified prospects</p>
       </div>
       <div class="benefit-card">
-        <div class="benefit-icon">💬</div>
+        <div class="benefit-icon"><i class="fas fa-comment-dollar"></i></div>
         <h3 class="benefit-title">Proven Messaging Templates</h3>
-        <p class="benefit-desc">Convert more leads with our battle-tested email and DM scripts</p>
+        <p class="benefit-desc">Convert more leads with our battle-tested email and DM scripts that get responses and land clients consistently</p>
       </div>
       <div class="benefit-card">
-        <div class="benefit-icon">🤝</div>
+        <div class="benefit-icon"><i class="fas fa-users"></i></div>
         <h3 class="benefit-title">24/7 Support Community</h3>
-        <p class="benefit-desc">Get instant help from our community of 1,200+ successful freelancers</p>
+        <p class="benefit-desc">Get instant help from our community of 1,200+ successful freelancers and our team of experts</p>
       </div>
       <div class="benefit-card">
-        <div class="benefit-icon">🚀</div>
+        <div class="benefit-icon"><i class="fas fa-chart-line"></i></div>
         <h3 class="benefit-title">Weekly Growth Training</h3>
-        <p class="benefit-desc">Live calls with experts to help you scale your freelance business</p>
+        <p class="benefit-desc">Live calls with top freelancers and business experts to help you scale your freelance business faster</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon"><i class="fas fa-file-contract"></i></div>
+        <h3 class="benefit-title">Legal Contract Templates</h3>
+        <p class="benefit-desc">Protect yourself and get paid on time with our lawyer-approved contract templates for Indian freelancers</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon"><i class="fas fa-rupee-sign"></i></div>
+        <h3 class="benefit-title">Pricing Strategies</h3>
+        <p class="benefit-desc">Learn how to confidently charge 2-5X more for your services with our value-based pricing frameworks</p>
       </div>
     </div>
   </section>
 
   <!-- Results Section -->
   <section class="results-section" id="results">
-    <h2 class="section-heading">Proven Results</h2>
+    <h2 class="section-heading">Proven Results From Our Members</h2>
     <div class="results-grid">
       <div class="result-card">
         <div class="result-number">2-5X</div>
-        <div class="result-label">Income Increase</div>
+        <div class="result-label">Income Increase Within 90 Days</div>
       </div>
       <div class="result-card">
         <div class="result-number">92%</div>
-        <div class="result-label">Success Rate</div>
+        <div class="result-label">Success Rate For Active Members</div>
       </div>
       <div class="result-card">
         <div class="result-number">15-30</div>
-        <div class="result-label">Leads/Month</div>
+        <div class="result-label">High-Quality Leads Per Month</div>
       </div>
     </div>
   </section>
@@ -752,25 +1109,27 @@
   <section class="pricing-section" id="pricing">
     <h2 class="section-heading">Simple, Affordable Pricing</h2>
     <div class="pricing-card">
-      <div class="popular-badge">MOST POPULAR</div>
+      <div class="popular-badge">Most Popular</div>
       <h3 class="pricing-title">FreelancePro Membership</h3>
-      <div class="pricing-price">₹99/month</div>
+      <div class="pricing-price">₹99<span>/month</span></div>
       
       <ul class="pricing-features">
-        <li>15-30 verified client leads monthly</li>
+        <li>15-30 verified client leads monthly (worth ₹5,000+)</li>
         <li>Proven messaging templates (worth ₹5,000)</li>
-        <li>24/7 support community access</li>
-        <li>Weekly live training sessions</li>
-        <li>Portfolio builder tool</li>
-        <li>Contract templates</li>
+        <li>24/7 support community access (worth ₹3,000)</li>
+        <li>Weekly live training sessions (worth ₹4,000/month)</li>
+        <li>Portfolio builder tool (worth ₹2,000)</li>
+        <li>Contract & proposal templates (worth ₹3,000)</li>
+        <li>Pricing strategy guides (worth ₹2,000)</li>
+        <li>Exclusive member discounts (worth ₹2,000+)</li>
       </ul>
       
-      <p class="money-back">7-day money back guarantee</p>
+      <p class="money-back"><i class="fas fa-check-circle"></i> 7-day money back guarantee - try it risk-free</p>
       <a href="https://cosmofeed.com/vig/68669c3ee9b28000131da815" class="cta-btn">Join Now for ₹99/month</a>
       
       <div class="trust-badges">
-        <div class="trust-badge">🔒 Secure Payment</div>
-        <div class="trust-badge">🔄 Cancel Anytime</div>
+        <div class="trust-badge"><i class="fas fa-lock"></i> Secure Payment</div>
+        <div class="trust-badge"><i class="fas fa-sync-alt"></i> Cancel Anytime</div>
       </div>
     </div>
   </section>
@@ -781,56 +1140,93 @@
     <div class="faq-list">
       <div class="faq-item">
         <button class="faq-question">How quickly will I see results?<span class="faq-toggle">+</span></button>
-        <div class="faq-answer">Most members land their first high-paying client within 2-3 weeks. Our fastest member landed a ₹50k project in just 4 days!</div>
+        <div class="faq-answer">
+          Most members land their first high-paying client within 2-3 weeks when they implement our system. Our fastest member landed a ₹50k project in just 4 days! However, we recommend committing to at least 3 months to see the full potential - our members typically 2X their income within 90 days when they follow the process.
+        </div>
       </div>
       <div class="faq-item">
         <button class="faq-question">What if I don't get results?<span class="faq-toggle">+</span></button>
-        <div class="faq-answer">We offer a 7-day money back guarantee. If you don't find value in the first week, we'll refund you no questions asked.</div>
+        <div class="faq-answer">
+          We offer a 7-day money back guarantee. If you don't find value in the first week, we'll refund you no questions asked. After that, our success team will work personally with you to ensure you're implementing everything correctly - we're committed to your success and will do whatever it takes to help you get results.
+        </div>
       </div>
       <div class="faq-item">
         <button class="faq-question">Is this suitable for beginners?<span class="faq-toggle">+</span></button>
-        <div class="faq-answer">Absolutely! 40% of our members started with no prior freelance experience. We provide everything you need to succeed.</div>
+        <div class="faq-answer">
+          Absolutely! 40% of our members started with no prior freelance experience. We provide everything you need to succeed including beginner-friendly training, simple templates, and step-by-step guides. Our community is also incredibly supportive and will help you through every step of your freelance journey.
+        </div>
       </div>
       <div class="faq-item">
         <button class="faq-question">How are the leads selected?<span class="faq-toggle">+</span></button>
-        <div class="faq-answer">We manually verify each lead to ensure they have budget, need your services, and are actively hiring.</div>
+        <div class="faq-answer">
+          We manually verify each lead to ensure they have budget, need your services, and are actively hiring. Our team researches companies and clients across India to find the best opportunities. We also categorize leads by skill type (design, development, writing, etc.) so you only get relevant opportunities for your expertise.
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">What skills does this work for?<span class="faq-toggle">+</span></button>
+        <div class="faq-answer">
+          FreelancePro works for all digital skills including graphic design, web development, content writing, digital marketing, video editing, social media management, and more. We have members across 25+ different freelance services who are seeing great results. If you provide a service businesses need, our system will work for you.
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Final CTA -->
   <section class="final-cta">
-    <h2 class="final-cta-heading">Ready to 2X Your Income?</h2>
-    <p class="final-cta-subheading">Join 1,200+ freelancers who transformed their business with FreelancePro</p>
-    <a href="https://cosmofeed.com/vig/68669c3ee9b28000131da815" class="cta-btn">Get Instant Access for ₹99</a>
+    <div class="final-cta-content">
+      <h2 class="final-cta-heading">Ready to 2X Your Freelance Income?</h2>
+      <p class="final-cta-subheading">Join 1,200+ Indian freelancers who transformed their business with FreelancePro</p>
+      <a href="https://cosmofeed.com/vig/68669c3ee9b28000131da815" class="cta-btn">Get Instant Access for ₹99/month</a>
+      <div class="trust-badges">
+        <div class="trust-badge"><i class="fas fa-shield-alt"></i> 7-Day Money Back Guarantee</div>
+        <div class="trust-badge"><i class="fas fa-lock"></i> Secure Payment</div>
+      </div>
+    </div>
   </section>
 
   <!-- Footer -->
   <footer>
     <div class="footer-container">
-      <div class="footer-logo">FreelancePro</div>
+      <div class="footer-logo">
+        <i class="fas fa-rocket"></i> FreelancePro
+      </div>
       
       <div class="footer-columns">
         <div class="footer-col">
           <div class="footer-col-title">Platform</div>
-          <a href="#benefits" class="footer-link">Benefits</a>
-          <a href="#results" class="footer-link">Results</a>
-          <a href="#pricing" class="footer-link">Pricing</a>
+          <a href="#benefits" class="footer-link"><i class="fas fa-chevron-right"></i> Benefits</a>
+          <a href="#video" class="footer-link"><i class="fas fa-chevron-right"></i> How It Works</a>
+          <a href="#results" class="footer-link"><i class="fas fa-chevron-right"></i> Results</a>
+          <a href="#pricing" class="footer-link"><i class="fas fa-chevron-right"></i> Pricing</a>
         </div>
         <div class="footer-col">
           <div class="footer-col-title">Support</div>
-          <a href="#" class="footer-link">Help Center</a>
-          <a href="#" class="footer-link">Contact Us</a>
+          <a href="#" class="footer-link"><i class="fas fa-chevron-right"></i> Help Center</a>
+          <a href="#" class="footer-link"><i class="fas fa-chevron-right"></i> Contact Us</a>
+          <a href="#" class="footer-link"><i class="fas fa-chevron-right"></i> Member Login</a>
         </div>
         <div class="footer-col">
           <div class="footer-col-title">Legal</div>
-          <a href="#" class="footer-link">Privacy Policy</a>
-          <a href="#" class="footer-link">Terms</a>
+          <a href="#" class="footer-link"><i class="fas fa-chevron-right"></i> Privacy Policy</a>
+          <a href="#" class="footer-link"><i class="fas fa-chevron-right"></i> Terms of Service</a>
+          <a href="#" class="footer-link"><i class="fas fa-chevron-right"></i> Refund Policy</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Connect</div>
+          <a href="#" class="footer-link"><i class="fas fa-chevron-right"></i> About Us</a>
+          <a href="#" class="footer-link"><i class="fas fa-chevron-right"></i> Careers</a>
+          <a href="#" class="footer-link"><i class="fas fa-chevron-right"></i> Blog</a>
+          <div class="social-links">
+            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+          </div>
         </div>
       </div>
       
       <div class="footer-bottom">
-        Made for Indian freelancers. © 2025 FreelancePro. All rights reserved.
+        Made with <i class="fas fa-heart" style="color: #ff6b6b;"></i> for Indian freelancers. © 2025 FreelancePro. All rights reserved.
       </div>
     </div>
   </footer>
@@ -843,6 +1239,7 @@
     hamburger.addEventListener('click', function() {
       mobileNav.classList.toggle('open');
       hamburger.setAttribute('aria-expanded', mobileNav.classList.contains('open'));
+      hamburger.innerHTML = mobileNav.classList.contains('open') ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
     });
     
     // FAQ accordion
@@ -867,6 +1264,12 @@
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
         e.preventDefault();
+        
+        // Close mobile menu if open
+        mobileNav.classList.remove('open');
+        hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+        hamburger.setAttribute('aria-expanded', 'false');
+        
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
           target.scrollIntoView({
@@ -876,9 +1279,28 @@
       });
     });
     
-    // Hide mobile CTA bar on desktop
+    // Hide mobile CTA bar when scrolling down
+    let lastScrollPosition = 0;
+    const mobileCtaBar = document.querySelector('.mobile-cta-bar');
+    
+    window.addEventListener('scroll', function() {
+      if (window.innerWidth < 992) {
+        const currentScrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+        
+        if (currentScrollPosition > lastScrollPosition) {
+          // Scrolling down
+          mobileCtaBar.classList.add('hide');
+        } else {
+          // Scrolling up
+          mobileCtaBar.classList.remove('hide');
+        }
+        
+        lastScrollPosition = currentScrollPosition <= 0 ? 0 : currentScrollPosition;
+      }
+    });
+    
+    // Check screen size on load and resize
     function checkScreenSize() {
-      const mobileCtaBar = document.querySelector('.mobile-cta-bar');
       if (window.innerWidth >= 992) {
         mobileCtaBar.style.display = 'none';
       } else {
@@ -888,6 +1310,17 @@
     
     window.addEventListener('resize', checkScreenSize);
     window.addEventListener('load', checkScreenSize);
+    
+    // Add floating animation to elements
+    function addFloatingAnimation() {
+      const elements = document.querySelectorAll('.benefit-card, .result-card, .pricing-card');
+      elements.forEach((el, index) => {
+        el.style.animationDelay = `${index * 0.1}s`;
+        el.classList.add('floating');
+      });
+    }
+    
+    window.addEventListener('load', addFloatingAnimation);
   </script>
 </body>
 </html>
