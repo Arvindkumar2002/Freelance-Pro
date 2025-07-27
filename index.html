@@ -19,34 +19,27 @@
       --footer-link-hover: #ffb300;
       --card-radius: 16px;
       --card-shadow: 0 4px 24px 0 rgba(36,107,253,0.07), 0 1.5px 6px 0 rgba(0,0,0,0.04);
-      --transition: 0.2s cubic-bezier(.4,0,.2,1);
       --body-font: 'Inter', Arial, sans-serif;
-      --header-height: 72px;
-      --mobile-header-height: 60px;
-      --z-header: 1000;
-      --max-content-width: 1100px;
     }
-    html {
-      scroll-behavior: smooth;
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
+    
     body {
       font-family: var(--body-font);
       font-size: 16px;
       color: var(--dark-gray);
       background: #fff;
-      margin: 0;
-      padding: 0;
       line-height: 1.6;
       -webkit-text-size-adjust: 100%;
-      padding-bottom: 80px;
-    }
-    section {
-      padding: 40px 0;
-    }
-    .container {
-      max-width: var(--max-content-width);
+      width: 100%;
+      max-width: 500px;
       margin: 0 auto;
-      padding: 0 16px;
+      padding: 0;
+      overflow-x: hidden;
     }
     
     /* Header */
@@ -54,24 +47,16 @@
       position: sticky;
       top: 0;
       width: 100%;
-      height: var(--mobile-header-height);
+      height: 60px;
       background: #fff;
       box-shadow: 0 2px 12px 0 rgba(36,107,253,0.04);
-      z-index: var(--z-header);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .header-inner {
-      width: 100%;
-      max-width: var(--max-content-width);
-      margin: 0 auto;
+      z-index: 1000;
       display: flex;
       align-items: center;
       justify-content: space-between;
       padding: 0 16px;
-      height: var(--mobile-header-height);
     }
+    
     .header-logo {
       font-weight: 900;
       font-size: 1.2rem;
@@ -79,38 +64,36 @@
       letter-spacing: 1px;
       text-decoration: none;
     }
-    .header-nav {
-      display: none;
-    }
+    
     .header-hamburger {
-      display: flex;
-      align-items: center;
-      justify-content: center;
       background: none;
       border: none;
       font-size: 1.5rem;
       color: var(--brand-blue);
       cursor: pointer;
-      min-width: 48px;
-      min-height: 48px;
-      outline: none;
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
+    
     .header-mobile-nav {
       display: none;
       position: fixed;
-      top: var(--mobile-header-height);
+      top: 60px;
       left: 0;
-      width: 100vw;
+      width: 100%;
       background: #fff;
       box-shadow: 0 4px 20px 0 rgba(0,0,0,0.12);
-      z-index: calc(var(--z-header) + 1);
+      z-index: 1001;
       flex-direction: column;
-      align-items: center;
-      border-bottom: 1px solid #f0f0f0;
     }
+    
     .header-mobile-nav.open {
       display: flex;
     }
+    
     .header-mobile-link {
       color: var(--dark-gray);
       text-decoration: none;
@@ -121,24 +104,20 @@
       text-align: center;
       border-bottom: 1px solid #f0f0f0;
     }
-    .header-cta {
-      display: none;
-    }
     
-    /* Sticky Join Now Bar (Mobile) */
+    /* Mobile Join Bar */
     .mobile-join-bar {
-      display: block;
       position: fixed;
       bottom: 0;
       left: 0;
-      width: 100vw;
+      width: 100%;
       background: #fff;
       box-shadow: 0 -4px 20px 0 rgba(0,0,0,0.12);
-      z-index: calc(var(--z-header) + 2);
+      z-index: 1002;
       padding: 12px 16px;
       text-align: center;
-      border-top: 1px solid #f0f0f0;
     }
+    
     .mobile-join-btn {
       background: var(--accent-yellow);
       color: #222;
@@ -150,70 +129,46 @@
       border-radius: 32px;
       box-shadow: 0 4px 16px 0 rgba(255,179,0,0.13);
       cursor: pointer;
-      transition: all 0.3s ease;
-      outline: none;
       width: 100%;
       max-width: 340px;
-      text-decoration: none !important;
-      min-height: 48px;
       display: inline-block;
-      animation: mobilePulse 3s ease-in-out infinite;
+      text-decoration: none;
     }
     
-    @keyframes mobilePulse {
-      0% { box-shadow: 0 4px 16px 0 rgba(255,179,0,0.13); }
-      50% { box-shadow: 0 4px 20px 0 rgba(255,179,0,0.25); }
-      100% { box-shadow: 0 4px 16px 0 rgba(255,179,0,0.13); }
+    /* Sections */
+    section {
+      padding: 40px 16px;
+      width: 100%;
     }
     
-    /* Hero Section */
     .hero {
       background: var(--light-gray);
       padding-top: 80px;
-      padding-bottom: 40px;
       text-align: center;
     }
+    
     .hero-headline {
       font-size: 1.8rem;
       font-weight: 900;
       color: var(--brand-blue);
       margin-bottom: 16px;
       line-height: 1.3;
-      padding: 0 10px;
     }
+    
     .hero-subheading {
       font-size: 1rem;
       color: var(--dark-gray);
       margin-bottom: 24px;
       font-weight: 500;
-      line-height: 1.5;
-      padding: 0 10px;
     }
-    .cta-btn {
-      display: block;
-      background: var(--accent-yellow);
-      color: #222;
-      font-weight: 800;
-      font-size: 1.1rem;
-      text-transform: uppercase;
-      padding: 16px 0;
-      border: none;
-      border-radius: 32px;
-      box-shadow: 0 4px 16px 0 rgba(255,179,0,0.13);
-      cursor: pointer;
-      margin: 0 auto 16px auto;
-      width: 100%;
-      max-width: 340px;
-      outline: none;
-      min-height: 48px;
-      text-decoration: none !important;
-    }
+    
     .trust-statement {
       color: var(--muted-gray);
       font-size: 0.9rem;
       text-align: center;
       margin-bottom: 24px;
     }
+    
     .hero-social-proof {
       display: flex;
       justify-content: center;
@@ -225,48 +180,37 @@
       font-weight: 500;
       flex-wrap: wrap;
     }
-    .hero-testimonial-row {
-      margin: 24px auto 0 auto;
-      max-width: 560px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 12px;
-    }
+    
     .hero-video-embed {
       width: 100%;
-      max-width: 560px;
       aspect-ratio: 16/9;
-      margin: 20px auto 24px auto;
+      margin: 20px 0 24px;
       border-radius: 12px;
       overflow: hidden;
       box-shadow: var(--card-shadow);
     }
+    
     .hero-video-embed iframe {
       width: 100%;
       height: 100%;
       border-radius: 12px;
     }
     
-    /* Benefits Section */
-    .benefits-section {
-      background: #fff;
-    }
+    /* Benefits */
     .benefits-heading {
       color: var(--brand-blue);
       font-size: 1.8rem;
       font-weight: 800;
       text-align: center;
       margin-bottom: 30px;
-      padding: 0 10px;
     }
+    
     .benefits-grid {
       display: grid;
       grid-template-columns: 1fr;
       gap: 16px;
-      max-width: 900px;
-      margin: 0 auto;
     }
+    
     .benefit-card {
       background: #f7f9fb;
       border-radius: var(--card-radius);
@@ -276,13 +220,14 @@
       flex-direction: column;
       align-items: center;
       gap: 12px;
-      min-height: 120px;
     }
+    
     .benefit-icon {
       font-size: 2rem;
       margin-bottom: 4px;
       color: var(--brand-blue);
     }
+    
     .benefit-title {
       font-weight: 700;
       font-size: 1.1rem;
@@ -290,65 +235,61 @@
       text-align: center;
     }
     
-    /* How It Works Section */
-    .how-section {
-      background: #fff;
-      text-align: center;
-    }
+    /* How It Works */
     .how-heading {
       color: var(--brand-blue);
       font-size: 1.8rem;
       font-weight: 800;
       margin-bottom: 30px;
-      padding: 0 10px;
+      text-align: center;
     }
+    
     .steps {
       display: flex;
       flex-direction: column;
       gap: 20px;
-      justify-content: center;
     }
+    
     .step-card {
       background: #f7f9fb;
       border-radius: var(--card-radius);
       box-shadow: var(--card-shadow);
       padding: 24px 20px;
-      max-width: 320px;
-      margin: 0 auto;
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: 16px;
       text-align: center;
     }
+    
     .step-circle {
       width: 48px;
       height: 48px;
       border-radius: 50%;
-      background: var(--brand-blue);
-      color: #fff;
+      background: var(--accent-yellow);
+      color: #222;
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 1.5rem;
       font-weight: 700;
       margin-bottom: 8px;
-      box-shadow: 0 2px 8px 0 rgba(36,107,253,0.10);
     }
+    
     .step-title {
       font-weight: 700;
       font-size: 1.1rem;
       color: var(--dark-gray);
     }
+    
     .step-desc {
       color: var(--muted-gray);
       font-size: 1rem;
     }
     
-    /* Pricing Section - Centered Text */
+    /* Pricing */
     .pricing-section {
       background: #f7f9fb;
-      padding: 40px 0;
       text-align: center;
     }
     
@@ -357,23 +298,13 @@
       font-size: 1.8rem;
       font-weight: 800;
       margin-bottom: 24px;
-      text-align: center;
-    }
-    
-    .pricing-card-wrap {
-      width: 100%;
-      padding: 0 16px;
-      text-align: center;
     }
     
     .pricing-card {
       background: #fff;
       border-radius: 12px;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+      box-shadow: var(--card-shadow);
       padding: 24px 16px;
-      margin: 0 auto;
-      max-width: 100%;
-      box-sizing: border-box;
       text-align: center;
     }
     
@@ -382,7 +313,6 @@
       font-size: 1.2rem;
       font-weight: 800;
       margin-bottom: 12px;
-      text-align: center;
     }
     
     .pricing-price-badge {
@@ -393,29 +323,22 @@
       font-size: 1.8rem;
       border-radius: 12px;
       padding: 12px 24px;
-      margin: 0 auto 16px auto;
+      margin-bottom: 16px;
       border: 2px solid var(--brand-blue);
-      text-align: center;
     }
     
     .pricing-features {
       text-align: center;
       margin: 20px 0;
-      padding: 0;
       list-style: none;
-      font-size: 0.95rem;
-      color: var(--dark-gray);
     }
     
     .pricing-features li {
       margin-bottom: 12px;
       line-height: 1.4;
-      text-align: center;
     }
     
     .pricing-cta-btn {
-      width: 100%;
-      max-width: 280px;
       background: var(--accent-yellow);
       color: #222;
       font-weight: 800;
@@ -424,10 +347,12 @@
       padding: 16px 0;
       border: none;
       border-radius: 12px;
-      margin: 20px auto 0 auto;
+      margin: 20px auto 0;
+      width: 100%;
+      max-width: 280px;
       display: block;
       box-shadow: 0 4px 12px rgba(255,179,0,0.2);
-      text-decoration: none !important;
+      text-decoration: none;
     }
     
     .pricing-trust-strip {
@@ -435,28 +360,23 @@
       justify-content: center;
       gap: 12px;
       margin-top: 20px;
-      flex-wrap: wrap;
       font-size: 0.9rem;
       color: var(--muted-gray);
     }
     
-    /* FAQ Section */
-    .faq-section {
-      background: #fff;
-      text-align: center;
-    }
+    /* FAQ */
     .faq-heading {
       color: var(--brand-blue);
       font-size: 1.8rem;
       font-weight: 800;
       margin-bottom: 30px;
-      padding: 0 10px;
+      text-align: center;
     }
+    
     .faq-list {
-      max-width: 700px;
-      margin: 0 auto;
       text-align: left;
     }
+    
     .faq-item {
       background: #f7f9fb;
       border-radius: var(--card-radius);
@@ -464,6 +384,7 @@
       margin-bottom: 16px;
       overflow: hidden;
     }
+    
     .faq-question {
       cursor: pointer;
       padding: 18px 20px;
@@ -477,9 +398,9 @@
       border: none;
       width: 100%;
       outline: none;
-      min-height: 60px;
       text-align: left;
     }
+    
     .faq-answer {
       max-height: 0;
       overflow: hidden;
@@ -489,10 +410,12 @@
       padding: 0 20px;
       transition: max-height 0.35s cubic-bezier(.4,0,.2,1), padding 0.35s;
     }
+    
     .faq-item.open .faq-answer {
       max-height: 500px;
-      padding: 0 20px 18px 20px;
+      padding: 0 20px 18px;
     }
+    
     .faq-toggle {
       font-size: 1.3rem;
       color: var(--brand-blue);
@@ -500,6 +423,7 @@
       transition: transform 0.3s;
       font-weight: bold;
     }
+    
     .faq-item.open .faq-toggle {
       transform: rotate(45deg);
     }
@@ -507,23 +431,23 @@
     /* Final CTA */
     .final-cta-section {
       background: #f7f9fb;
-      padding: 50px 0 30px 0;
       text-align: center;
     }
-    .final-cta-heading {
-      color: var(--brand-blue);
-      font-size: 1.8rem;
-      font-weight: 800;
-      margin-bottom: 16px;
-      padding: 0 10px;
-    }
+    
     .final-cta-social {
       color: var(--dark-gray);
       font-size: 1.05rem;
       margin-bottom: 20px;
       font-weight: 500;
-      padding: 0 10px;
     }
+    
+    .final-cta-heading {
+      color: var(--brand-blue);
+      font-size: 1.8rem;
+      font-weight: 800;
+      margin-bottom: 16px;
+    }
+    
     .final-cta-btn {
       background: var(--accent-yellow);
       color: #222;
@@ -535,29 +459,20 @@
       border-radius: 16px;
       box-shadow: 0 4px 16px 0 rgba(255,179,0,0.13);
       cursor: pointer;
-      outline: none;
       width: 100%;
       max-width: 340px;
       margin: 0 auto;
-      min-height: 48px;
-      text-decoration: none !important;
+      display: block;
+      text-decoration: none;
     }
     
     /* Footer */
     footer {
       background: var(--footer-bg);
       color: var(--footer-link);
-      padding: 40px 0 18px 0;
-      font-size: 0.95rem;
+      padding: 40px 16px 18px;
     }
-    .footer-container {
-      max-width: var(--max-content-width);
-      margin: 0 auto;
-      padding: 0 16px;
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
-    }
+    
     .footer-logo {
       font-weight: 900;
       font-size: 1.2rem;
@@ -565,178 +480,50 @@
       letter-spacing: 1px;
       margin-bottom: 12px;
     }
+    
     .footer-columns {
       display: flex;
       flex-wrap: wrap;
       gap: 24px;
     }
+    
     .footer-col {
       min-width: 120px;
       flex: 1;
     }
+    
     .footer-col-title {
       font-weight: 700;
       color: #fff;
       margin-bottom: 10px;
       font-size: 1.05rem;
     }
+    
     .footer-link {
       color: var(--footer-link);
       text-decoration: none;
       display: block;
       margin-bottom: 8px;
-      transition: color 0.15s;
       font-size: 0.95rem;
     }
+    
     .footer-link:hover {
       color: var(--footer-link-hover);
     }
+    
     .footer-bottom {
       text-align: center;
       color: #8a8f9c;
       font-size: 0.9rem;
       margin-top: 32px;
     }
-    
-    /* Adjustments for larger mobile screens */
-    @media (min-width: 480px) {
-      .hero-headline {
-        font-size: 2rem;
-      }
-      .hero-subheading {
-        font-size: 1.1rem;
-      }
-      .benefits-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      .steps {
-        flex-direction: row;
-        flex-wrap: wrap;
-      }
-      .step-card {
-        flex: 1;
-        min-width: 200px;
-      }
-    }
-    
-    /* Tablet and larger screens */
-    @media (min-width: 768px) {
-      section {
-        padding: 60px 0;
-      }
-      .hero {
-        padding-top: 100px;
-        padding-bottom: 60px;
-      }
-      .hero-headline {
-        font-size: 2.2rem;
-      }
-      .hero-subheading {
-        font-size: 1.2rem;
-      }
-      .benefits-grid {
-        grid-template-columns: repeat(4, 1fr);
-      }
-      .steps {
-        flex-direction: row;
-        gap: 24px;
-      }
-      
-      /* Pricing Section - Tablet */
-      .pricing-section {
-        padding: 60px 0;
-      }
-      
-      .pricing-card {
-        padding: 32px 24px;
-        max-width: 420px;
-      }
-      
-      .pricing-price-badge {
-        font-size: 2rem;
-        padding: 14px 40px;
-      }
-      
-      .pricing-features {
-        font-size: 1.05rem;
-      }
-      
-      .pricing-cta-btn {
-        font-size: 1.1rem;
-        padding: 18px 0;
-        max-width: 320px;
-      }
-      
-      .footer-columns {
-        gap: 40px;
-      }
-    }
-    
-    /* Desktop screens */
-    @media (min-width: 1024px) {
-      .header {
-        height: var(--header-height);
-      }
-      .header-inner {
-        height: var(--header-height);
-        padding: 0 24px;
-      }
-      .header-logo {
-        font-size: 1.35rem;
-      }
-      .header-nav {
-        display: flex;
-        align-items: center;
-        gap: 32px;
-      }
-      .header-link {
-        color: var(--dark-gray);
-        text-decoration: none;
-        font-weight: 600;
-        font-size: 1.05rem;
-        padding: 4px 0;
-      }
-      .header-cta {
-        display: inline-block;
-        background: var(--accent-yellow);
-        color: #222;
-        font-weight: 800;
-        font-size: 1.05rem;
-        text-transform: uppercase;
-        padding: 14px 28px;
-        border-radius: 32px;
-        margin-left: 24px;
-        text-decoration: none !important;
-      }
-      .header-hamburger {
-        display: none;
-      }
-      .mobile-join-bar {
-        display: none;
-      }
-      .hero-headline {
-        font-size: 2.5rem;
-      }
-      .hero-subheading {
-        font-size: 1.25rem;
-      }
-    }
   </style>
 </head>
 <body>
   <!-- Header -->
   <header class="header" role="banner">
-    <div class="header-inner">
-      <a href="#top" class="header-logo" aria-label="FreelancePro Home">FreelancePro</a>
-      <nav class="header-nav" aria-label="Main Navigation">
-        <a href="#top" class="header-link">Home</a>
-        <a href="#benefits" class="header-link">Benefits</a>
-        <a href="#pricing" class="header-link">Pricing</a>
-        <a href="#faq" class="header-link">FAQ</a>
-      </nav>
-      <button class="header-hamburger" aria-label="Open navigation menu" tabindex="0">☰</button>
-      <a href="https://cosmofeed.com/vig/68669c3ee9b28000131da815" class="header-cta">Join Now for ₹99/month 🚀</a>
-    </div>
+    <a href="#top" class="header-logo" aria-label="FreelancePro Home">FreelancePro</a>
+    <button class="header-hamburger" aria-label="Open navigation menu" tabindex="0">☰</button>
     <nav class="header-mobile-nav" aria-label="Mobile Navigation">
       <a href="#top" class="header-mobile-link">Home</a>
       <a href="#benefits" class="header-mobile-link">Benefits</a>
@@ -744,163 +531,146 @@
       <a href="#faq" class="header-mobile-link">FAQ</a>
     </nav>
   </header>
-  <!-- Sticky Join Now Bar (Mobile) -->
+
+  <!-- Mobile Join Bar -->
   <div class="mobile-join-bar">
     <a href="https://cosmofeed.com/vig/68669c3ee9b28000131da815" class="mobile-join-btn">Join Now for ₹99/month 🚀</a>
   </div>
 
   <!-- Hero Section -->
   <section class="hero" id="top">
-    <div class="container">
-      <h1 class="hero-headline">Platform for Ambitious Freelancers</h1>
-      <div class="hero-subheading">Land consistent, high-paying clients—no cold outreach or guesswork.</div>
-      <div class="trust-statement">7-day money-back guarantee · Cancel anytime</div>
-      <div class="hero-testimonial-row">
-        <div class="hero-social-proof">
-          <span>🔥 1,200+ joined this month</span>
-          <span>·</span>
-          <span>⭐ 4.8/5 by members</span>
-        </div>
-        <div class="hero-video-embed">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/givuf7GvAEc" title="YouTube video testimonial" frameborder="0" allowfullscreen></iframe>
-        </div>
-      </div>
+    <h1 class="hero-headline">Platform for Ambitious Freelancers</h1>
+    <div class="hero-subheading">Land consistent, high-paying clients—no cold outreach or guesswork.</div>
+    <div class="trust-statement">7-day money-back guarantee · Cancel anytime</div>
+    <div class="hero-social-proof">
+      <span>🔥 1,200+ joined this month</span>
+      <span>·</span>
+      <span>⭐ 4.8/5 by members</span>
+    </div>
+    <div class="hero-video-embed">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/givuf7GvAEc" title="YouTube video testimonial" frameborder="0" allowfullscreen></iframe>
     </div>
   </section>
 
   <!-- Benefits Section -->
   <section class="benefits-section" id="benefits">
-    <div class="container">
-      <div class="benefits-heading">Core Benefits</div>
-      <div class="benefits-grid">
-        <div class="benefit-card">
-          <div class="benefit-icon">🔎</div>
-          <div class="benefit-title">Curated Client Leads</div>
-        </div>
-        <div class="benefit-card">
-          <div class="benefit-icon">📝</div>
-          <div class="benefit-title">Proven DM Scripts</div>
-        </div>
-        <div class="benefit-card">
-          <div class="benefit-icon">🤝</div>
-          <div class="benefit-title">24/7 Community</div>
-        </div>
-        <div class="benefit-card">
-          <div class="benefit-icon">🎤</div>
-          <div class="benefit-title">Growth Calls & Tools</div>
-        </div>
+    <div class="benefits-heading">Core Benefits</div>
+    <div class="benefits-grid">
+      <div class="benefit-card">
+        <div class="benefit-icon">🔎</div>
+        <div class="benefit-title">Curated Client Leads</div>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">📝</div>
+        <div class="benefit-title">Proven DM Scripts</div>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">🤝</div>
+        <div class="benefit-title">24/7 Community</div>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">🎤</div>
+        <div class="benefit-title">Growth Calls & Tools</div>
       </div>
     </div>
   </section>
 
   <!-- How It Works Section -->
   <section class="how-section" id="how">
-    <div class="container">
-      <div class="how-heading">Get Started in 3 Simple Steps</div>
-      <div class="steps">
-        <div class="step-card">
-          <div class="step-circle" style="background: var(--accent-yellow); color: #222; font-size: 1.5rem;">1</div>
-          <div class="step-title" style="margin-top: 18px; font-size: 1.15rem; font-weight: 700;">Sign Up Instantly</div>
-          <div class="step-desc" style="color: var(--muted-gray); font-size: 1.05rem;">Quick registration</div>
-        </div>
-        <div class="step-card">
-          <div class="step-circle" style="background: var(--accent-yellow); color: #222; font-size: 1.5rem;">2</div>
-          <div class="step-title" style="margin-top: 18px; font-size: 1.15rem; font-weight: 700;">Get Leads & Toolkit</div>
-          <div class="step-desc" style="color: var(--muted-gray); font-size: 1.05rem;">Curated leads and tools</div>
-        </div>
-        <div class="step-card">
-          <div class="step-circle" style="background: var(--accent-yellow); color: #222; font-size: 1.5rem;">3</div>
-          <div class="step-title" style="margin-top: 18px; font-size: 1.15rem; font-weight: 700;">Start Earning</div>
-          <div class="step-desc" style="color: var(--muted-gray); font-size: 1.05rem;">Win clients, grow income</div>
-        </div>
+    <div class="how-heading">Get Started in 3 Simple Steps</div>
+    <div class="steps">
+      <div class="step-card">
+        <div class="step-circle">1</div>
+        <div class="step-title">Sign Up Instantly</div>
+        <div class="step-desc">Quick registration</div>
+      </div>
+      <div class="step-card">
+        <div class="step-circle">2</div>
+        <div class="step-title">Get Leads & Toolkit</div>
+        <div class="step-desc">Curated leads and tools</div>
+      </div>
+      <div class="step-card">
+        <div class="step-circle">3</div>
+        <div class="step-title">Start Earning</div>
+        <div class="step-desc">Win clients, grow income</div>
       </div>
     </div>
   </section>
 
-  <!-- Pricing Section - Centered Text -->
+  <!-- Pricing Section -->
   <section class="pricing-section" id="pricing">
-    <div class="container">
-      <div class="pricing-heading">Membership Pricing</div>
-      <div class="pricing-card-wrap">
-        <div class="pricing-card">
-          <div class="pricing-title">FreelancePro Membership</div>
-          <div class="pricing-price-badge">₹99/month</div>
-          <ul class="pricing-features">
-            <li>15–30 curated client leads monthly</li>
-            <li>Proven cold DM scripts</li>
-            <li>Access to outreach tools (₹5,000/month value)</li>
-            <li>Weekly live growth calls</li>
-            <li>Private 24/7 Telegram community</li>
-          </ul>
-          <a href="https://cosmofeed.com/vig/68669c3ee9b28000131da815" class="pricing-cta-btn">JOIN NOW FOR ₹99/MONTH</a>
-          <div class="pricing-trust-strip">
-            <span>✅ Secure Payment</span>
-            <span>❌ Cancel Anytime</span>
-          </div>
-        </div>
+    <div class="pricing-heading">Membership Pricing</div>
+    <div class="pricing-card">
+      <div class="pricing-title">FreelancePro Membership</div>
+      <div class="pricing-price-badge">₹99/month</div>
+      <ul class="pricing-features">
+        <li>15–30 curated client leads monthly</li>
+        <li>Proven cold DM scripts</li>
+        <li>Access to outreach tools (₹5,000/month value)</li>
+        <li>Weekly live growth calls</li>
+        <li>Private 24/7 Telegram community</li>
+      </ul>
+      <a href="https://cosmofeed.com/vig/68669c3ee9b28000131da815" class="pricing-cta-btn">JOIN NOW FOR ₹99/MONTH</a>
+      <div class="pricing-trust-strip">
+        <span>✅ Secure Payment</span>
+        <span>❌ Cancel Anytime</span>
       </div>
     </div>
   </section>
 
   <!-- FAQ Section -->
   <section class="faq-section" id="faq">
-    <div class="container">
-      <div class="faq-heading">Frequently Asked Questions</div>
-      <div class="faq-list">
-        <div class="faq-item">
-          <button class="faq-question">How do client leads work?<span class="faq-toggle">+</span></button>
-          <div class="faq-answer">We handpick and verify high-quality client leads every month. You'll receive a curated list directly in your dashboard and via email/Telegram.</div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question">What if I don't get clients in the first month?<span class="faq-toggle">+</span></button>
-          <div class="faq-answer">We offer a 7-day money-back guarantee. Plus, our team and community will help you optimize your outreach for better results.</div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question">Can I cancel anytime?<span class="faq-toggle">+</span></button>
-          <div class="faq-answer">Absolutely. You can cancel your membership at any time from your dashboard—no questions asked.</div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question">How secure is my payment and data?<span class="faq-toggle">+</span></button>
-          <div class="faq-answer">We use industry-standard encryption and secure payment gateways. Your data and payment info are always protected.</div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question">Is this only for experienced freelancers?<span class="faq-toggle">+</span></button>
-          <div class="faq-answer">No! FreelancePro is designed for both beginners and experienced freelancers. Our resources and community support all levels.</div>
-        </div>
+    <div class="faq-heading">Frequently Asked Questions</div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-question">How do client leads work?<span class="faq-toggle">+</span></button>
+        <div class="faq-answer">We handpick and verify high-quality client leads every month. You'll receive a curated list directly in your dashboard and via email/Telegram.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">What if I don't get clients in the first month?<span class="faq-toggle">+</span></button>
+        <div class="faq-answer">We offer a 7-day money-back guarantee. Plus, our team and community will help you optimize your outreach for better results.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">Can I cancel anytime?<span class="faq-toggle">+</span></button>
+        <div class="faq-answer">Absolutely. You can cancel your membership at any time from your dashboard—no questions asked.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">How secure is my payment and data?<span class="faq-toggle">+</span></button>
+        <div class="faq-answer">We use industry-standard encryption and secure payment gateways. Your data and payment info are always protected.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">Is this only for experienced freelancers?<span class="faq-toggle">+</span></button>
+        <div class="faq-answer">No! FreelancePro is designed for both beginners and experienced freelancers. Our resources and community support all levels.</div>
       </div>
     </div>
   </section>
 
   <!-- Final CTA Section -->
   <section class="final-cta-section">
-    <div class="container">
-      <div class="final-cta-social">Join 1,200+ Indian freelancers growing their income today!</div>
-      <div class="final-cta-heading">Ready to get started?</div>
-      <a href="https://cosmofeed.com/vig/68669c3ee9b28000131da815" class="final-cta-btn">Join Now for ₹99/month 🚀</a>
-    </div>
+    <div class="final-cta-social">Join 1,200+ Indian freelancers growing their income today!</div>
+    <div class="final-cta-heading">Ready to get started?</div>
+    <a href="https://cosmofeed.com/vig/68669c3ee9b28000131da815" class="final-cta-btn">Join Now for ₹99/month 🚀</a>
   </section>
 
   <!-- Footer -->
   <footer>
-    <div class="footer-container">
-      <div class="footer-logo">FreelancePro</div>
-      <div class="footer-columns">
-        <div class="footer-col">
-          <div class="footer-col-title">Platform</div>
-          <a href="#benefits" class="footer-link">Benefits</a>
-          <a href="#pricing" class="footer-link">Pricing</a>
-          <a href="#faq" class="footer-link">FAQ</a>
-        </div>
-        <div class="footer-col">
-          <div class="footer-col-title">Support</div>
-          <a href="#" class="footer-link">Help</a>
-          <a href="#" class="footer-link">Contact</a>
-        </div>
-        <div class="footer-col">
-          <div class="footer-col-title">Legal</div>
-          <a href="#" class="footer-link">Privacy Policy</a>
-          <a href="#" class="footer-link">Terms</a>
-        </div>
+    <div class="footer-logo">FreelancePro</div>
+    <div class="footer-columns">
+      <div class="footer-col">
+        <div class="footer-col-title">Platform</div>
+        <a href="#benefits" class="footer-link">Benefits</a>
+        <a href="#pricing" class="footer-link">Pricing</a>
+        <a href="#faq" class="footer-link">FAQ</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Support</div>
+        <a href="#" class="footer-link">Help</a>
+        <a href="#" class="footer-link">Contact</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Legal</div>
+        <a href="#" class="footer-link">Privacy Policy</a>
+        <a href="#" class="footer-link">Terms</a>
       </div>
     </div>
     <div class="footer-bottom">Made for Indian freelancers. © 2025 FreelancePro.</div>
@@ -913,14 +683,6 @@
     hamburger.addEventListener('click', function() {
       mobileNav.classList.toggle('open');
       hamburger.setAttribute('aria-expanded', mobileNav.classList.contains('open'));
-    });
-    
-    // Close mobile nav on link click
-    document.querySelectorAll('.header-mobile-link').forEach(link => {
-      link.addEventListener('click', function() {
-        mobileNav.classList.remove('open');
-        hamburger.setAttribute('aria-expanded', 'false');
-      });
     });
     
     // FAQ Accordion
@@ -945,18 +707,6 @@
         }
       });
     });
-    
-    // Hide mobile join bar on desktop
-    function handleMobileJoinBar() {
-      const bar = document.querySelector('.mobile-join-bar');
-      if (window.innerWidth <= 1024) {
-        bar.style.display = 'block';
-      } else {
-        bar.style.display = 'none';
-      }
-    }
-    window.addEventListener('resize', handleMobileJoinBar);
-    window.addEventListener('DOMContentLoaded', handleMobileJoinBar);
   </script>
 </body>
 </html>
